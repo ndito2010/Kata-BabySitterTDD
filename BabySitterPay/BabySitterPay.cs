@@ -75,8 +75,8 @@ namespace BabySitterPay
                 int totalHours = ts.Hours;
                 int mins = ts.Minutes;
 
-                if (mins > 0)
-                    totalHours++;
+                if (mins > 0)  // gets paid for full hours (no fractional hours)
+                totalHours++;
 
                 return totalHours;
             
