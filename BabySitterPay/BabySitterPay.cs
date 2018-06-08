@@ -18,7 +18,7 @@ namespace BabySitter
         private const Double BEDTIMERATE = 12;
         private const Double AFTERBEDTIMERATE = 8;
         private const Double AFTERMIDNIGHTRATE = 16;
-        private const int MIDNIGHT = 6;
+        private const int MIDNIGHT = 12;
 
         public Double CalcBabySitterPay(int startTime, int endTime, int bedTime)
         {
@@ -49,17 +49,20 @@ namespace BabySitter
         }
         public Double CalcPayBeforeBedTime(int startTime, int endTime)
         {
-            return 0;
+            var nightlyPay = (endTime - startTime) * BEDTIMERATE;
+            return nightlyPay;
         }
 
         public Double CalcPayAfterBedTime(int bedTime, int endTime)
         {
-            return 0;
+            var nightlyPay = (endTime - bedTime) * AFTERBEDTIMERATE;
+            return nightlyPay;
         }
 
         public Double CalcPayAfterMidNight(int endTime)
         {
-            return 0;
+            var nightlyPay = (endTime - MIDNIGHT) * AFTERMIDNIGHTRATE;
+            return nightlyPay;
         }
     }
 }
