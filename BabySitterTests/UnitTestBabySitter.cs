@@ -1,4 +1,5 @@
 ﻿using System;
+using BabySitter;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BabySitterTests
@@ -10,8 +11,8 @@ namespace BabySitterTests
         public void TestPayBeforeBedTime()
         {
             BabySitterPay babySitterPay = new BabySitterPay();
-            Double totalCharge = babySitterPay.PayBeforeBedTime(startTime, endTime);
-            Assert.AreEqual(1, totalCharge);
+            Double totalCharge = babySitterPay.PayBeforeBedTime(6, 7);
+            Assert.AreEqual(12, totalCharge);
 
         }
     }

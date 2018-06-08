@@ -1,0 +1,8 @@
+C:\Users\singam2\Desktop\BabySitterTests\BabySitterTests\obj\Debug\BabySitterTests.csprojResolveAssemblyReference.cache
+C:\Users\singam2\Desktop\BabySitterTests\BabySitterTests\bin\Debug\BabySitterTests.dll
+C:\Users\singam2\Desktop\BabySitterTests\BabySitterTests\bin\Debug\BabySitterTests.pdb
+C:\Users\singam2\Desktop\BabySitterTests\BabySitterTests\bin\Debug\BabySitterPay.dll
+C:\Users\singam2\Desktop\BabySitterTests\BabySitterTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\singam2\Desktop\BabySitterTests\BabySitterTests\bin\Debug\BabySitterPay.pdb
+C:\Users\singam2\Desktop\BabySitterTests\BabySitterTests\obj\Debug\BabySitterTests.dll
+C:\Users\singam2\Desktop\BabySitterTests\BabySitterTests\obj\Debug\BabySitterTests.pdb
