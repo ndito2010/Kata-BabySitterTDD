@@ -12,8 +12,9 @@ namespace BabySitterTests
         public void TestCalcBabySitterPay()
         {
             BabySitterPay babySitterPay = new BabySitterPay();
-            Double totalCharge = babySitterPay.CalcBabySitterPay(5, 7, 9);
+            Double totalCharge = babySitterPay.CalcBabySitterPay("12:00", "7:00", "9:00");
             Assert.AreEqual(24, totalCharge);
+
 
         }
     }
