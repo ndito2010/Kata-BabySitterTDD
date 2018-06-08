@@ -18,23 +18,31 @@ namespace BabySitter
         private const Double AFTERBEDTIMERATE = 8;
         private const Double AFTERMIDNIGHTRATE = 16;
         private const string MIDNIGHT = "12:00";
+        private const string OFFICIALSTARTTIME = "5:00";
+        private const string OFFICIALENDTIME = "4:00";
 
         public Double CalcBabySitterPay(string startTime, string endTime, string bedTime)
         {
             Double totalPay = 0.00;
             try
             {
+                if (DateTime.ParseExact(startTime, "hh:mm", CultureInfo.InvariantCulture) < DateTime.ParseExact(OFFICIALSTARTTIME, "hh:mm", CultureInfo.InvariantCulture) ||
+                    DateTime.ParseExact(endTime, "hh:mm", CultureInfo.InvariantCulture) > DateTime.ParseExact(OFFICIALENDTIME, "hh:mm", CultureInfo.InvariantCulture))
+                {
+                    Console.WriteLine("Error: Start Time / End Time should be between 5PM and 4AM");
+                    return 0;
+                }
                 if (DateTime.ParseExact(endTime, "hh:mm", CultureInfo.InvariantCulture) <= DateTime.ParseExact(bedTime, "hh:mm", CultureInfo.InvariantCulture))
                 {
                     totalPay = CalcPayBeforeBedTime(startTime, endTime);
                 }
 
-                if (DateTime.ParseExact(endTime, "hh:mm", CultureInfo.InvariantCulture) > DateTime.ParseExact(bedTime, "hh:mm", CultureInfo.InvariantCulture) && DateTime.ParseExact(endTime, "hh:mm", CultureInfo.InvariantCulture) <= DateTime.ParseExact(MIDNIGHT, "hh:mm", CultureInfo.InvariantCulture))
+                else if (DateTime.ParseExact(endTime, "hh:mm", CultureInfo.InvariantCulture) > DateTime.ParseExact(bedTime, "hh:mm", CultureInfo.InvariantCulture) && DateTime.ParseExact(endTime, "hh:mm", CultureInfo.InvariantCulture) <= DateTime.ParseExact(MIDNIGHT, "hh:mm", CultureInfo.InvariantCulture))
                 {
                     totalPay = CalcPayBeforeBedTime(startTime, bedTime) + CalcPayAfterBedTime(bedTime, endTime);
                 }
 
-                if (DateTime.ParseExact(endTime, "hh:mm", CultureInfo.InvariantCulture) > DateTime.ParseExact(MIDNIGHT, "hh:mm", CultureInfo.InvariantCulture))
+                else if (DateTime.ParseExact(endTime, "hh:mm", CultureInfo.InvariantCulture) > DateTime.ParseExact(MIDNIGHT, "hh:mm", CultureInfo.InvariantCulture))
                 {
                     totalPay = CalcPayBeforeBedTime(startTime, bedTime) + CalcPayAfterBedTime(bedTime, endTime) +
                                CalcPayAfterMidNight(endTime);
