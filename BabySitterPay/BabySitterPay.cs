@@ -12,18 +12,17 @@ namespace BabySitterPay
         private const Double BEDTIMERATE = 12;
         private const Double AFTERBEDTIMERATE = 8;
         private const Double AFTERMIDNIGHTRATE = 16;
-        private const string MIDNIGHT = "2018-06-08 00:00 PM";
-        private const string OFFICIALSTARTTIME = "2018-06-08 17:00 PM";
-        private const string OFFICIALENDTIME = "2018-06-08 4:00 AM";
-
+        readonly DateTime midNight = new DateTime(2018, 06, 11, 00, 00, 00);
+        readonly DateTime officialStartTime = new DateTime(2018, 06, 08, 17, 00, 00);
+        readonly DateTime officialEndTime = new DateTime(2018, 06, 09, 04, 00, 00);
 
         public double CalcBabySitterPay(DateTime startTime, DateTime endTime, DateTime bedTime)
         {
             double totalPay = 0.00;
             try
             {
-                if  (startTime< DateTime.ParseExact(OFFICIALSTARTTIME, "yyyy-MM-dd HH:mm tt", CultureInfo.InvariantCulture) ||
-                     endTime> DateTime.ParseExact(OFFICIALENDTIME, "yyyy-MM-dd HH:mm tt", CultureInfo.InvariantCulture))
+                if  (startTime < officialStartTime ||
+                     endTime > officialEndTime)
                 {
                     Console.WriteLine("Error: Start Time / End Time should be between 5PM and 4AM");
                     return 0;
@@ -33,12 +32,12 @@ namespace BabySitterPay
                     totalPay = CalcPayBeforeBedTime(startTime, endTime);
                 }
 
-                else if (endTime > bedTime && endTime <= DateTime.ParseExact(MIDNIGHT, "yyyy-MM-dd HH:mm tt", CultureInfo.InvariantCulture))
+                else if (endTime > bedTime && endTime <= midNight)
                 {
                     totalPay = CalcPayBeforeBedTime(startTime, bedTime) + CalcPayAfterBedTime(bedTime, endTime);
                 }
 
-                else if (endTime > DateTime.ParseExact(MIDNIGHT, "yyyy-MM-dd HH:mm tt", CultureInfo.InvariantCulture))
+                else if (endTime > midNight)
                 {
                     totalPay = CalcPayBeforeBedTime(startTime, bedTime) + CalcPayAfterBedTime(bedTime, endTime) +
                                CalcPayAfterMidNight(endTime);
@@ -62,9 +61,9 @@ namespace BabySitterPay
             return nightlyPay;
         }
 
-        public double CalcPayAfterMidNight(DateTime endTime)
+        public double CalcPayAfterMidNight (DateTime endTime)
         {
-            var nightlyPay = CalcWorkHours(DateTime.ParseExact(MIDNIGHT, "yyyy-MM-dd HH:mm tt", CultureInfo.InvariantCulture), endTime) * AFTERMIDNIGHTRATE;
+            var nightlyPay = CalcWorkHours(midNight, endTime) * AFTERMIDNIGHTRATE;
             return nightlyPay;
         }
 

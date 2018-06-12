@@ -3,3 +3,8 @@ C:\Users\singam2\Desktop\BabySitterTests\BabySitterPay\bin\Debug\BabySitterPay.p
 C:\Users\singam2\Desktop\BabySitterTests\BabySitterPay\obj\Debug\BabySitter.csprojResolveAssemblyReference.cache
 C:\Users\singam2\Desktop\BabySitterTests\BabySitterPay\obj\Debug\BabySitterPay.dll
 C:\Users\singam2\Desktop\BabySitterTests\BabySitterPay\obj\Debug\BabySitterPay.pdb
+G:\Practice\BabySitterTests\BabySitterPay\bin\Debug\BabySitterPay.dll
+G:\Practice\BabySitterTests\BabySitterPay\bin\Debug\BabySitterPay.pdb
+G:\Practice\BabySitterTests\BabySitterPay\obj\Debug\BabySitter.csprojResolveAssemblyReference.cache
+G:\Practice\BabySitterTests\BabySitterPay\obj\Debug\BabySitterPay.dll
+G:\Practice\BabySitterTests\BabySitterPay\obj\Debug\BabySitterPay.pdb
